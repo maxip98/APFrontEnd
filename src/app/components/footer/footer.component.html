@@ -1,0 +1,51 @@
+<footer>
+    <section id="footer">
+      <div class="container">
+        <div class="row align-items-center">
+
+          <hr>
+  
+          <div class="col-sm-6 text-center">
+
+            <div class="my-3">
+            <app-login></app-login>
+            </div>
+
+            <h2 class="letra-titulos fondo-amarillo mt-2">Mis redes</h2>
+
+  
+            <ul class="list-group list-group-horizontal justify-content-center my-3">
+  
+              <a href=""><li class="list-group-item"><i class="bi bi-linkedin iconos linkedin fs-4"></i></li></a>
+              <hr>
+              <a href=""><li class="list-group-item"><i class="bi bi-twitter iconos twitter fs-4"></i></li></a>
+              <hr>
+              <a href=""><li class="list-group-item"><i class="bi bi-facebook iconos facebook fs-4"></i></li></a>
+              <hr>
+              <a href=""><li class="list-group-item"><i class="bi bi-github iconos fs-4"></i></li></a>
+  
+            </ul>
+  
+            
+          </div>
+  
+          <div class="col-sm-6 text-center ">
+
+            <h3 class="letra-titulos" *ngFor="let persona of FPersonal">{{persona.nombreP}} - 2022</h3>
+
+            <div class="letra-parrafos" *ngFor="let persona of FPersonal">
+            <p class=""><i class="bi bi-geo-alt"></i>{{persona.lugarP}}</p>
+            <p><i class="bi bi-telephone"></i>{{persona.telefonoP}}</p>
+            <p class="text-center">Los monitos son dibujos de <span class="fw-bold"> catalyststuff.</span></p>
+            </div>
+
+          </div>
+  
+  
+        </div>
+      </div>
+      <div>
+        
+      </div>
+    </section>
+  </footer>

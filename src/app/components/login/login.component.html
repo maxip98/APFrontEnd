@@ -1,0 +1,106 @@
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn fondo-rojo letra-titulos text-white btn-lg fs-4" data-bs-toggle="modal" data-bs-target="#loginModal" *ngIf="!isLogged">
+  Iniciar Sesion
+</button>
+<button type="button" class="btn fondo-rojo letra-titulos text-white btn-lg fs-4" (click)="onLogOut()" *ngIf="isLogged">Cerrar Sesion</button>
+
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header fondo-amarillo">
+        <h5 class="modal-title letra-titulos fs-4 morado fw-bold" id="exampleModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body letra-titulos">
+
+        <p class="my-4 fs-4">Por favor, ingresar usuario y clave</p>
+
+        <form #f="ngForm" (ngSubmit)="onLogin()" novalidate> 
+
+          <div class="form-outline my-4">
+            <input type="email" id="nombreUsuario" name="nombreUsuario" class="form-control form-control-lg letra-parrafos"
+              [(ngModel)]="nombreUsuario" required />
+            <label class="form-label letra-parrafos" for="nombreUsuario">Usuario</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input type="password" id="password" name="password" class="form-control form-control-lg letra-parrafos" [(ngModel)]="password"
+              required />
+            <label class="form-label letra-parrafos" for="password">Password</label>
+          </div>
+
+          <button type="button" class="btn btn-secondary mx-1" data-bs-dismiss="modal">Cerrar</button>
+          <button class="btn fondo-rojo btn-lg text-white mx-1" type="submit" (click)="spinner()">
+            INGRESAR           
+          </button>
+          <div class="spinner-border text-warning mx-2 fs-4" *ngIf="spin">
+            <span class=""></span>
+          </div> 
+
+        </form>
+
+      </div>
+
+      <div class="letra-parrafos fs-6">
+        <p>¿No tienes una cuenta?
+        </p>
+        <p>Puedes ingresar modo visitante con</p>
+        <p class="fw-bold">usuario: user y password: user</p>
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+<!-- <section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-5">
+
+              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+              <p class="text-white-50 mb-5">Por favor, ingresar usuario y clave</p>
+
+              <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+
+                <div class="form-outline form-white mb-4">
+                  <input type="email" id="nombreUsuario" name="nombreUsuario" class="form-control form-control-lg"
+                    [(ngModel)]="nombreUsuario" required />
+                  <label class="form-label" for="nombreUsuario">Usuario</label>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <input type="password" id="password" name="password" class="form-control form-control-lg" [(ngModel)]="password"
+                    required />
+                  <label class="form-label" for="password">Password</label>
+                </div>
+
+
+                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+
+              </form>
+
+            </div>
+
+            <div>
+              <p class="mb-0">¿No tienes una cuenta? <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->

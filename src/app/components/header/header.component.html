@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-md fondo sticky-top">
+
+  <div class="container-fluid text-center">
+
+    <a href="#acercaDe"><button class="btn font-weight-bold letra-titulos text-light fs-1 my-md-3">Mi Porfolio</button></a>
+
+    <button class="navbar-toggler fondo-blanco" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon text-light"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa"><img src="https://argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1661403264/APLogo-20-20.png" class="imagen-AP my-md-3"></a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#acercaDe"><button class="btn letra-titulos text-light fs-3 my-md-3">Inicio</button></a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#habilidades"><button class="btn letra-titulos text-light fs-3 my-md-3">habilidades</button></a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#formacion"><button class="btn letra-titulos text-light fs-3 my-md-3">formacion</button></a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#experiencia"><button class="btn letra-titulos text-light fs-3 my-md-3">experiencia</button></a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#contacto"><button class="btn letra-titulos text-light fs-3 my-md-2">Contacto</button></a>
+        </li>
+
+        <!-- boton login -->
+
+         <div class="my-md-3">
+          <button type="button" class="btn btn-outline-light naranja" (click)="onLogOut()" *ngIf="isLogged">Cerrar Sesion</button>
+        </div>
+
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</nav>

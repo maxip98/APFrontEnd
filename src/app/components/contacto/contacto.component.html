@@ -1,0 +1,83 @@
+<!-- Contacto -->
+
+<section id="contacto">
+
+  <div class="my-5">
+
+    <h1 class="text-center my-2 letra-titulos morado fondo-amarillo">Contacto</h1>
+
+    <hr>
+
+    <div class="row mt-4 letra-parrafos">
+
+      <div class="col-md-6 text-center" *ngFor="let persona of infoPersonal">
+        <h4 class="mb-3">¿ Tienes alguna consulta ?</h4>
+        <p>Con gusto te respondo en: </p>
+        <p><i class="bi bi-whatsapp whatsapp"></i> {{persona.telefonoP}} </p>
+        <p><i class="bi bi-envelope envelope"></i> {{persona.emailP}}</p>
+        <div class="text-center">
+          <img src="https://i.postimg.cc/3r6wG4nW/monito-duda.jpg" class="tamañoMonitos">
+        </div>
+      </div>
+
+      <div class="col-md-6 text-center">
+        <h4>¿ Tienes un proyecto en mente ?</h4>
+        <h4>Hablemos</h4>
+        <br>
+
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="mb-1">
+            <label for="inputNombre" class="form-label fst-italic pequeño m-0">Tu nombre</label>
+            <input type="text" class="form-control text-center" id="exampleFormControlInput1" placeholder="Nombre">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="mb-1">
+            <label for="inputEmail" class="form-label fst-italic pequeño m-0">Tu email</label>
+            <input type="email" class="form-control text-center" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row my-3">
+          <div class="col">
+            <label for="inputEmail" class="form-label fst-italic pequeño m-0">Elije el tema de tu consulta: </label>
+            <select class="form-select" aria-label="Selecciona">
+              <option selected disabled class="text-center">¿ Que servicio te interesa ?</option>
+              <option value="desarrolloSoftware" class="text-center">Desarrollo de Software</option>
+              <option value="desarrolloSitioWeb" class="text-center">Desarrollo de Sitio Web</option>
+              <option value="general" class="text-center">Consulta general</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row my-1">
+
+          <div class="col">
+
+              <div class="mb-3">
+                <label for="inputMensanje" class="form-label fst-italic pequeño m-0">Cuentame aqui: </label>
+                <textarea type="text" class="form-control text-center" id="exampleFormControlTextarea1" rows="3" placeholder="Tu mensaje"></textarea>
+              </div>
+
+          </div>
+
+        </div>
+
+        <div class="row my-1 justify-content-center">
+          <div class="col">
+            <button type="button" class="btn btn-outline-danger btn-lg disabled">Proximamente</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+</section>
+

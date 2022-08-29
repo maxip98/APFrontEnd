@@ -1,0 +1,22 @@
+@media screen and (min-width:768px){
+    .navbar .container-fluid, .navbar-expand-md .navbar-collapse, .navbar-expand-md .navbar-nav{
+        flex-direction: column;
+    }
+
+    .navbar{
+        height: 100vh;
+        align-items: flex-start;
+    }
+    
+}
+
+
+.fondo{
+    background-color: #41294a!important;
+}
+
+.imagen-AP{
+    width: 150px;
+    height: 100px;
+}
+

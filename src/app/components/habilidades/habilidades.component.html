@@ -1,0 +1,250 @@
+<div class="container my-5 fs-5" id="habilidades">
+
+  <h1 class="text-center letra-titulos morado fondo-amarillo">Habilidades</h1>
+  
+  <div class="letra-parrafos">
+    
+    <div *ngIf="isLogged">
+      
+      <app-agregarHabilidad></app-agregarHabilidad>
+      
+    </div>
+    
+  <hr class="my-3">
+
+
+  <div class="container-fluid container-xl" *ngIf="!isLogged">
+    <div class="row text-center">
+
+      <div class="col-5 col-md-3">
+        <div *ngFor="let habilidad of habilidades">
+            <button class="btn alto fw-bold fs-4">{{habilidad.nombreH}}</button>
+            <hr>
+        </div>
+      </div>
+
+      <div class="col">
+
+        <div *ngFor="let habilidad of habilidades">
+
+          <button class="btn alto">                
+            <circle-progress
+            [percent]="habilidad.porcentaje"
+            [radius]="38"
+            [outerStrokeWidth]="8"
+            [innerStrokeWidth]="4"
+            [outerStrokeColor]="'#e6403b'"
+            [innerStrokeColor]="'#41294a'"
+            [animation]="true"
+            [animationDuration]="300"
+            [showSubtitle]="false"
+            ></circle-progress>
+          </button>
+
+          <hr>
+        </div>
+        
+      </div>
+
+      <div class="col">
+        <div *ngFor="let habilidad of habilidades" class="dispositivoPeque">
+
+            <img src={{habilidad.imgH}} class="imagenes">
+
+            <hr>
+        
+        </div>
+      </div>
+
+      <div class="col-5 col-md-3">
+        <div *ngFor="let habilidad of habilidades" class="dispositivoPeque">
+
+            <button class="btn alto">{{habilidad.descH}}</button>
+
+            <hr>
+        
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="container-fluid container-xl" *ngIf="isLogged">
+
+    <div class="row text-center">
+
+      <div class="col-5 col-md-3">
+        <div *ngFor="let habilidad of habilidades">
+            <button class="btn alto fw-bold fs-4">{{habilidad.nombreH}}</button>
+            <hr>
+        </div>
+      </div>
+
+
+
+      <!-- BOTON EDITAR -->
+      <div class="col">
+
+        <div *ngFor="let habilidad of habilidades">
+
+            <button class="btn amarillo-oscuro altoS" type="button" (click)="guardarDatos(habilidad.id, habilidad.nombreH, habilidad.imgH, habilidad.porcentaje, habilidad.descH)" data-bs-toggle="modal" data-bs-target="#actualizarModal">
+              <i class="bi bi-pencil-square fs-3"></i>  
+            </button>
+          
+          <hr>
+        </div>
+
+      </div>
+
+
+      <!-- BOTON BORRAR -->
+      <div class="col">
+
+        <div *ngFor="let habilidad of habilidades">
+
+            <button class="btn rojo-oscuro altoS" type="button" (click)="guardarDatos(habilidad.id, habilidad.nombreH, habilidad.imgH, habilidad.porcentaje, habilidad.descH)" data-bs-toggle="modal" data-bs-target="#borrarModal">
+              <i class="bi bi-trash fs-3 text-danger"></i>
+            </button>
+
+          
+          <hr>
+      </div>
+
+      </div>
+
+
+      <div class="col">
+
+            <div *ngFor="let habilidad of habilidades" class="dispositivoPeque">
+              <button class="btn alto">                
+                <circle-progress
+                [percent]="habilidad.porcentaje"
+                [radius]="38"
+                [outerStrokeWidth]="8"
+                [innerStrokeWidth]="4"
+                [outerStrokeColor]="'#e6403b'"
+                [innerStrokeColor]="'#41294a'"
+                [animation]="true"
+                [animationDuration]="300"
+                [showSubtitle]="false"
+                ></circle-progress>
+              </button>
+              <hr>
+            </div>
+       
+      </div>
+
+      <div class="col">
+        <div *ngFor="let habilidad of habilidades" class="dispositivoPeque">
+
+            <img src={{habilidad.imgH}} class="imagenes">
+
+            <hr>
+        
+        </div>
+      </div>
+
+      <div class="col col-md-3">
+        <div *ngFor="let habilidad of habilidades" class="dispositivoPeque">
+
+            <button class="btn alto">{{habilidad.descH}}</button>
+
+            <hr>
+        
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+<!-- Modal de Borrar -->
+<div class="modal fade" id="borrarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Esta seguro que desea borrar la habilidad?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body fs-1 text-center">
+         {{nombreG}} 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-danger" (click)="borrarHabilidad()">Si BORRAR ! <i class="mx-2 bi bi-trash"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Editar -->
+<div class="modal fade" id="actualizarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Actualice sus datos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Nombre -->
+          <div class="row mb-3">
+            <div class="col-2">
+              Nombre
+            </div>
+            <div class="col-10">
+              <input #nombreH class="form-control form-control-sm" type="text" value="{{nombreG}}" placeholder="nombre habilidad">
+            </div>                   
+          </div>
+
+        <!-- Imagen -->
+        <div class="row mb-3">
+          <div class="col-2">
+            Imagen
+          </div>
+          <div class="col-10">
+            <input #imgH class="form-control form-control-sm" type="text" value="{{imgG}}" placeholder="timagen">
+          </div>                   
+        </div>
+
+        <!-- Porcentaje -->
+        <div class="row mb-3">
+          <div class="col-2">
+            Porcentaje
+          </div>
+          <div class="col-10">
+            <input #porcentajeH class="form-control form-control-sm" type="text" value="{{porcentajeG}}" placeholder="porcentaje">
+          </div>                   
+        </div>
+
+        <!-- Desc -->
+        <div class="row mb-3">
+          <div class="col-2">
+            Descripcion
+          </div>
+          <div class="col-10">
+            <textarea #descH class="form-control form-control-sm" value="{{descG}}" placeholder="tu descripcion" rows="2"></textarea>
+          </div>                   
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn fondo-amarillo" (click)="editarHabilidad()">ACTUALIZAR datos<i class="bi bi-pencil-square mx-2"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<!-- Ademas, por mi formacion en curso de ingenieria industrial aprendi a coordinar equipos, administrar recursos y evaluar la factibilidad en los proyectos que participo. Tambien me apasiona lo relacionado al mercado de capitales y blockchain -->

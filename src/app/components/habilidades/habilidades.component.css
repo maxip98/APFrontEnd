@@ -1,0 +1,60 @@
+
+.tamaño-letra{
+    height: 115px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centrado{
+    text-align: center
+}
+
+.centradoD{
+    text-align: center
+}
+@media (max-width: 768px) {
+    .centradoD {
+        text-align: right
+    }
+}
+
+.miestilo {
+    color: black;
+}
+@media (max-width: 768px) {
+    .miestilo {
+        display: none;
+    }
+
+}
+
+separador{
+    font-weight: normal;
+}
+@media (max-width: 768px) {
+    .separador {
+        margin: 0 25px;
+    }
+}
+
+.imagenes{
+    height: 100px;
+    width: 100px;
+}
+
+.alto{
+    height: 100px;
+    pointer-events: none;
+}
+
+.altoS{
+    height: 100px;
+}
+
+
+@media (max-width: 1200px) {
+    .dispositivoPeque {
+        display: none;
+    }
+}

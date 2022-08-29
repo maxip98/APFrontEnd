@@ -1,0 +1,136 @@
+
+<section id="experiencia">
+
+  <div class="text-center letra-titulos morado fondo-amarillo">
+      <h1>Experiencias</h1>
+  </div>
+
+
+  <div class="text-center">
+    <img src="https://i.postimg.cc/kGkXPzBW/monito-cientifico.jpg" class="tamañoMonitos">
+  </div>
+
+  <div class="letra-parrafos">
+  <div *ngIf="isLogged">
+      <app-agregarExperiencia></app-agregarExperiencia>
+   </div>
+  
+<hr>
+
+<div class="letra-parrafos">
+
+  <div class="text-center" *ngFor="let exp of experiencias">
+
+  <div class="my-3">
+    Nombre: <span class="fw-bold">{{exp.nombreE}}</span>
+    <br>
+    
+    Descripcion: {{exp.descripcionE}}
+    <br>
+
+    Fecha de Inicio: {{exp.fechaIE}}
+    <br>
+
+    Fecha de finalizacion: {{exp.fechaFE}}
+    <br>
+
+    <div *ngIf="isLogged">
+  <!-- BOTON EDITAR -->
+  <button class="btn mt-2 amarillo-oscuro" type="button" data-bs-toggle="modal" data-bs-target="#actualizarEModal" (click)="guardarDatos(exp.id, exp.nombreE, exp.descripcionE, exp.fechaIE, exp.fechaFE)">
+    <i class="bi bi-pencil-square mx-2 fs-3"></i>  
+  </button>
+
+  <!-- BOTON BORRAR -->
+  <button class="btn mt-2 rojo-oscuro" type="button" data-bs-toggle="modal" data-bs-target="#borrarEModal" (click)="guardarDatos(exp.id, exp.nombreE, exp.descripcionE, exp.fechaIE, exp.fechaFE)">
+    <i class="mx-2 bi bi-trash fs-3 text-danger"></i>
+  </button>
+
+  </div>
+
+    <hr>
+  </div>
+
+</div>
+
+  <!-- Modal de Borrar -->
+  <div class="modal fade" id="borrarEModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Esta seguro que desea borrar la experiencia?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body fs-1 text-center">
+           {{nombre}} 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-danger" (click)="borrarExperiencia()">Si BORRAR ! <i class="mx-2 bi bi-trash"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Editar -->
+  <div class="modal fade" id="actualizarEModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Actualice sus datos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Nombre -->
+          <div class="row mb-3">
+            <div class="col-2">
+              Nombre
+            </div>
+            <div class="col-10">
+              <input #nombreE class="form-control form-control-sm" type="text" value="{{nombre}}" placeholder="nombre formacion">
+            </div>                   
+          </div>
+
+        <!-- Desc -->
+        <div class="row mb-3">
+          <div class="col-2">
+            Descripcion
+          </div>
+          <div class="col-10">
+            <textarea #descE class="form-control form-control-sm" value="{{desc}}" placeholder="tu descripcion" rows="2"></textarea>
+          </div>                   
+        </div>
+
+                <!-- fecha inicio -->
+                <div class="row mb-3">
+                  <div class="col-2">
+                    Fecha de Inicio
+                  </div>
+                  <div class="col-10">
+                    <input #fechaIEF class="form-control form-control-sm" type="text" value="{{fechaI}}" placeholder="Fecha inicio">
+                  </div>                   
+                </div>
+        
+                <!-- fecha finalizacion -->
+                <div class="row mb-3">
+                  <div class="col-2">
+                    Fecha finalizacion
+                  </div>
+                  <div class="col-10">
+                    <input #fechaFE class="form-control form-control-sm" type="text" value="{{fechaF}}" placeholder="Fecha finalizacion">
+                  </div>                   
+                </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn fondo-amarillo" (click)="editarExperiencia()">ACTUALIZAR datos<i class="bi bi-pencil-square mx-2"></i></button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</div>
+</div>
+</section>

@@ -1,0 +1,68 @@
+/* Colores*/
+
+.morado{
+    color: #41294a!important;
+}
+
+.rojo-oscuro{
+    color: #d23733!important;
+}
+
+.rojo-claro{
+    color: #e6403b!important;
+}
+
+.blanco{
+    color: #fef2e2!important;
+}
+
+.blanco-amarillo{
+    color: #fde5c5!important;
+}
+
+.amarillo-claro{
+    color: #f7b100!important;
+}
+
+.amarillo-oscuro{
+    color: #f39904!important;
+}
+
+.fondo-morado{
+    background-color: #41294a!important;
+}
+
+.fondo-amarillo{
+    background-color: #f7b100!important;
+}
+
+.fondo-rojo{
+    background-color:#e6403b!important;
+}
+
+.fondo-blanco{
+    background-color:white!important;
+}
+
+.fondo-blancoAm{
+    background-color:#fde5c5!important;
+}
+
+
+.letra-parrafos{
+    font-family: 'Catamaran', sans-serif;
+}
+
+.letra-titulos{
+    font-family: 'Staatliches', cursive;
+}
+
+.tamañoMonitos{
+    height: 250px;
+    width: 250px;
+}
+
+.tamañoHabilidades{
+    height: 100px;
+    width: 100px;
+}
